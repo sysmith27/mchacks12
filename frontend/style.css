@@ -36,10 +36,20 @@ body {
     height: 30%;
 }
 
-.button-container {
+.button-container-play {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    width: 40%;
+    padding-bottom: 100px;
+}
+
+.button-container-mute {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 16%;
+    padding-bottom: 100px;
 }
 
 #button {
@@ -47,7 +57,7 @@ body {
     border: none;
     background: none;
     height: auto;
-    width: auto;
+    max-width: 100%;
 }
 
 #game-container {

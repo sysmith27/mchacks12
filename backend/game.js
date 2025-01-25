@@ -2,11 +2,13 @@
 const player = document.getElementById('player');
 const maze = document.getElementById('maze');
 const goal = document.getElementById('goal');
+const cloud = document.getElementById('cloud');
 // grid size and player position
 const gridSize = 30; //cell size = 30 x 30 
 const gridWidth = 20; 
 const gridHeight = 20; 
 let playerPosition = { x: 0, y: 0 };
+let cloudPosition = {x: 2, y: 2};
 
 //can't write over this path #thank you chat gpt
 const predefinedPath = [
@@ -20,10 +22,10 @@ const predefinedPath = [
     { x: 19, y: 16 }, { x: 19, y: 17 }, { x: 19, y: 18 }, { x: 19, y: 19 }
   ];
   
-  const walls = generateRandomWalls(gridWidth, gridHeight, predefinedPath, 0.4); // 40% walls
+const walls = generateRandomWalls(gridWidth, gridHeight, predefinedPath, 0.4); // 40% walls
 
   // gets the random walls
-  function generateRandomWalls(gridWidth, gridHeight, protectedPath, density) {
+function generateRandomWalls(gridWidth, gridHeight, protectedPath, density) {
     const totalCells = gridWidth * gridHeight;
     const maxWalls = Math.floor(totalCells * density); // Number of walls based on density
     const walls = new Set();
@@ -44,7 +46,7 @@ const predefinedPath = [
       const [x, y] = wall.split(',').map(Number);
       return { x, y };
     });
-  }
+}
   
 
 // make the walls show up
@@ -55,6 +57,17 @@ walls.forEach(wall => {
   wallElement.style.gridRowStart = wall.y + 1;
   maze.appendChild(wallElement);
 });
+
+
+//make obsticle 
+function generateCloud(protectedPath) {
+    const randomX = Math.floor(Math.random() * gridWidth);
+    cloudPosition.x = randomX;
+    cloudPosition.y = 1;
+
+    cloud.style.left = `${cloudPosition.x * gridSize}px`;
+    cloud.style.top = `${30}px`;
+}
 
 // ariana's event listener thing
 document.addEventListener('keydown', (e) => {
@@ -91,12 +104,54 @@ function isWithinBounds(x, y) {
 
 // are they at the goal
 function checkWin() {
-  const goalX = (maze.clientWidth / gridSize) - 1;
-  const goalY = (maze.clientHeight / gridSize) - 1;
-
-  if (playerPosition.x === goalX && playerPosition.y === goalY) {
+    if (gameWon) return;
+  
+    const goalX = (maze.clientWidth / gridSize) - 1; 
+    const goalY = (maze.clientHeight / gridSize) - 1;
+      
+    if (playerPosition.x === goalX && playerPosition.y === goalY) {
+      gameWon = true;
+      resetCountdown();
+    }
+      
+  }
+      
+    updatePlayerPosition();
+  
+    let timerInterval;
+    let timeRemaining = 30;
+    let gameWon = false;
+      
+  function startCountdown() {
+    timerInterval = setInterval(() => {
+  
+    // Update the timer display
+    document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
+    timeRemaining--;
+    // Stop the timer after 60 seconds
+    if (timeRemaining < 0) {
+      clearInterval(timerInterval);
+      alert("Time's up!");
+      }
+    }, 1000);
+  }
+       
+  function resetCountdown() {
+    clearInterval(timerInterval);
+    document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     alert('You win!');
   }
-}
+    
+  setInterval(() => {
+    // Check if the player has won
+    if (!gameWon) checkWin();
+  }, 100);
+  
+  document.addEventListener("DOMContentLoaded", () => {
+  // Start the timer when the game begins
+    startCountdown();
+});
+  
 
 updatePlayerPosition();
+generateCloud();

@@ -76,6 +76,9 @@ function generateCloud() {
         cloud.style.left = `${cloudPosition.x}px`;
         cloud.style.top = `${cloudPosition.y}px`;
     }
+    if (isCloud(playerPosition.x, playerPosition.y)) {
+        alert('You lost! The bread is soggy');
+    }
 }
 
 // ariana's event listener thing
@@ -113,6 +116,11 @@ function isWithinBounds(x, y) {
 
 function cloudWithinBounds(x, y) {
     return x >= 0 && x < 600 && y >= 0 && y < 600;
+}
+
+function isCloud(x, y) {
+    //alert(cloudPosition.x);
+    return ((cloudPosition.x -10 <= x && cloudPosition.x + 10 >= x) && (cloudPosition.y -10 <= y && cloudPosition.y + 10 >= y));
 }
 
 // are they at the goal

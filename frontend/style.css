@@ -21,19 +21,33 @@ body {
 }
 
 .logo-container {
-    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 70%;
 }
 
-.play-container {
-    padding: 20px;
+.start-elements-container {
     display: flex;
+    flex-direction: row;
+    gap: 20px;
     justify-content: center;
     align-items: center;
     height: 30%;
+}
+
+.play-button-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100%;
+    width: 200px;
+}
+
+#play-button {
+    padding: 0;
+    border: none;
+    background: none;
 }
 
 #game-container {

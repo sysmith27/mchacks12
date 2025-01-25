@@ -1,0 +1,113 @@
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#maze {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    background-color: #e6c095;
+    border: 5px solid #b17e45;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+}
+
+#player {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #f7d80f;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+
+#goal {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #e3928f;
+    border-radius: 50%;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+  }
+
+.wall {
+    background-color: #b17e45;
+}
+
+#timer {
+    font-size: 20px;
+    font-weight: bold;
+    color: #f7d80f;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    top: 1px; /* Distance from the top of the page */
+    left: 50%; /* Position horizontally at 50% of the page */
+    transform: translateX(-50%); /* Adjust to center the element */
+}
+
+#cloud {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #b9b9b9;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+
+/* Game Instructions Pop Up */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 3; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    padding-top: 100px;
+    box-sizing: border-box;
+}
+
+.modal-content {
+    background-color: #ffecb6;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+#start-game-btn img {
+    /*background-color: #a04caf;
+    color: white;
+    padding: 10px 20px;
+    border: none;*/
+    /*font-size: 16px;*/
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+#start-game-btn {
+    border: none;
+    background-color: transparent;
+    opacity: 80%;
+}
+
+#start-game-btn:hover {
+    opacity: 100%;
+}

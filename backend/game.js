@@ -60,10 +60,10 @@ walls.forEach(wall => {
 
 
 //make clound 
-let moving_direction = 30;
+let moving_direction = gridSize;
 function generateCloud() {
     cloudPosition.x = cloudPosition.x + moving_direction;
-    cloudPosition.y = 30;
+    cloudPosition.y = 1 * gridSize;
 
     if (cloudWithinBounds(cloudPosition.x, cloudPosition.y)) {
         console.log('within_bounds');
@@ -75,6 +75,10 @@ function generateCloud() {
         moving_direction = (-1)*moving_direction;
         cloud.style.left = `${cloudPosition.x}px`;
         cloud.style.top = `${cloudPosition.y}px`;
+    }
+
+    if (isCloud(playerPosition.x, playerPosition.y)) {
+        alert('You lost! The bread is soggy');
     }
 }
 
@@ -115,6 +119,11 @@ function cloudWithinBounds(x, y) {
     return x >= 0 && x < 600 && y >= 0 && y < 600;
 }
 
+function isCloud(x, y) {
+    //alert(cloudPosition.x);
+    return ((cloudPosition.x -10 <= x && cloudPosition.x + 10 >= x) && (cloudPosition.y -10 <= y && cloudPosition.y + 10 >= y));
+}
+
 // are they at the goal
 function checkWin() {
     if (gameWon) return;
@@ -127,15 +136,14 @@ function checkWin() {
       resetCountdown();
     }
       
-  }
+}
       
-    updatePlayerPosition();
   
-    let timerInterval;
-    let timeRemaining = 30;
-    let gameWon = false;
+let timerInterval;
+let timeRemaining = 30;
+let gameWon = false;
       
-  function startCountdown() {
+function startCountdown() {
     timerInterval = setInterval(() => {
   
     // Update the timer display
@@ -147,20 +155,20 @@ function checkWin() {
       alert("Time's up!");
       }
     }, 1000);
-  }
+}
        
-  function resetCountdown() {
+function resetCountdown() {
     clearInterval(timerInterval);
     document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     alert('You win!');
-  }
+}
     
-  setInterval(() => {
+setInterval(() => {
     // Check if the player has won
     if (!gameWon) checkWin();
-  }, 100);
+}, 100);
   
-  document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", () => {
   // Start the timer when the game begins
     startCountdown();
 });

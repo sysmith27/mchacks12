@@ -4,10 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maze</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mazestyle.css">
 </head>
 <body>
    <div id="game-container">
+        <div id="game-instructions-modal" class="modal">
+            <div class="modal-content">
+                <h1>Instructions</h1>
+                <p>Use the arrow keys to move the toast to the goal. Avoid the clouds.</p>
+                <button id="start-game-btn">
+                    <img src="../images/Play.png" alt="Play">
+                </button>
+            </div>
+        </div>
         <div id="maze">
             <div id="player"></div>
             <div id="goal"></div>

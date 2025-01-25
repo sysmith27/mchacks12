@@ -1,0 +1,40 @@
+#game-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#maze {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    background-color: #e0e0e0;
+    border: 5px solid #333;
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+}
+
+#player {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #007bff;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+
+#goal {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #28a745;
+    border-radius: 50%;
+    z-index: 1;
+    bottom: 0;
+    right: 0;
+  }

@@ -138,13 +138,13 @@ function checkWin() {
   function startCountdown() {
     timerInterval = setInterval(() => {
   
-    // Update the timer display
-    document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
-    timeRemaining--;
-    // Stop the timer after 60 seconds
-    if (timeRemaining < 0) {
-      clearInterval(timerInterval);
-      alert("Time's up!");
+      // Update the timer display
+      document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
+      timeRemaining--;
+      // Stop the timer after 60 seconds
+      if (timeRemaining < 0) {
+        clearInterval(timerInterval);
+        alert("Time's up!");
       }
     }, 1000);
   }
@@ -154,15 +154,28 @@ function checkWin() {
     document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     alert('You win!');
   }
-    
+  
+  document.addEventListener("DOMContentLoaded", () => {
+
+  // Get the modal and start button
+  const modal = document.getElementById("game-instructions-modal");
+  const startButton = document.getElementById("start-game-btn");
+
+  // Show the modal when the page loads
+  window.onload = function() {
+    modal.style.display = "block";
+  }
+
+  // Hide the modal when the start button is clicked
+  startButton.onclick = function() {
+    modal.style.display = "none"; // Hide the modal
+    startCountdown();
+  }
+
   setInterval(() => {
     // Check if the player has won
     if (!gameWon) checkWin();
   }, 100);
-  
-  document.addEventListener("DOMContentLoaded", () => {
-  // Start the timer when the game begins
-    startCountdown();
 });
   
 

@@ -36,18 +36,18 @@ body {
     height: 30%;
 }
 
-.play-button-container {
+.button-container {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    height: 100%;
-    width: 200px;
 }
 
-#play-button {
+#button {
     padding: 0;
     border: none;
     background: none;
+    height: auto;
+    width: auto;
 }
 
 #game-container {

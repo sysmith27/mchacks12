@@ -8,7 +8,7 @@ const gridSize = 30; //cell size = 30 x 30
 const gridWidth = 20; 
 const gridHeight = 20; 
 let playerPosition = { x: 0, y: 0 };
-let cloudPosition = {x: 2, y: 2};
+let cloudPosition = {x: 0, y: 0};
 
 //can't write over this path #thank you chat gpt
 const predefinedPath = [
@@ -59,14 +59,23 @@ walls.forEach(wall => {
 });
 
 
-//make obsticle 
-function generateCloud(protectedPath) {
-    const randomX = Math.floor(Math.random() * gridWidth);
-    cloudPosition.x = randomX;
-    cloudPosition.y = 1;
+//make clound 
+let moving_direction = 30;
+function generateCloud() {
+    cloudPosition.x = cloudPosition.x + moving_direction;
+    cloudPosition.y = 30;
 
-    cloud.style.left = `${cloudPosition.x * gridSize}px`;
-    cloud.style.top = `${30}px`;
+    if (cloudWithinBounds(cloudPosition.x, cloudPosition.y)) {
+        console.log('within_bounds');
+        cloud.style.left = `${cloudPosition.x}px`;
+        cloud.style.top = `${cloudPosition.y}px`;
+    }
+    else {
+        cloudPosition.x = cloudPosition.x + (-2)*moving_direction;
+        moving_direction = (-1)*moving_direction;
+        cloud.style.left = `${cloudPosition.x}px`;
+        cloud.style.top = `${cloudPosition.y}px`;
+    }
 }
 
 // ariana's event listener thing
@@ -100,6 +109,10 @@ function isWall(x, y) {
 
 function isWithinBounds(x, y) {
   return x >= 0 && x < gridWidth && y >= 0 && y < gridHeight;
+}
+
+function cloudWithinBounds(x, y) {
+    return x >= 0 && x < 600 && y >= 0 && y < 600;
 }
 
 // are they at the goal
@@ -154,4 +167,4 @@ function checkWin() {
   
 
 updatePlayerPosition();
-generateCloud();
+setInterval(generateCloud, 100);

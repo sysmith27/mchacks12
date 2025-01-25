@@ -32,8 +32,8 @@ body {
     position: relative;
     width: 600px;
     height: 600px;
-    background-color: #de7c31;
-    border: 5px solid #944e19;
+    background-color: #e6c095;
+    border: 5px solid #b17e45;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
     grid-template-rows: repeat(20, 1fr);

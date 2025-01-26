@@ -295,8 +295,9 @@ function showLossPopup() {
 }
 
 // Function to hide the popup when the close button is clicked
-closePopupBtn.addEventListener('click', function() {
-    lossPopup.style.display = 'none'; // Hide the popup
+const againButton = getElementById('play-again-btn');
+againButton.addEventListener('click', function() {
+    window.location.href = "toastchoice.html";
     // Optionally, reset the game state here
 });
 

@@ -104,6 +104,44 @@ body {
     transition: top 0.2s, left 0.2s;
 }
 
+#fire1 {
+    background-color: red;
+    display: none; /* Start hidden */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+#fire2 {
+    background-color: red;
+    display: none; /* Start hidden */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+
+#fire3 {
+    background-color: red;
+    display: none; /* Start hidden */
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+
 /* Game Instructions Pop Up */
 .modal {
     display: none; /* Hidden by default */

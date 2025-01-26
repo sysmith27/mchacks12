@@ -85,7 +85,10 @@ function generateCloud1() {
     }
 
     if (isCloud(playerPosition.x*gridSize, playerPosition.y*gridSize, cloudPosition1)) {
-        alert('You lost! The bread is soggy');
+        //alert('You lost! The bread is soggy');
+        showLossPopup();
+        clearInterval(timerInterval);
+        document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     }
 }
 
@@ -106,7 +109,9 @@ function generateCloud2() {
     }
 
     if (isCloud(playerPosition.x*gridSize, playerPosition.y*gridSize, cloudPosition2)) {
-        alert('You lost! The bread is soggy');
+        showLossPopup();
+        clearInterval(timerInterval);
+        document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     }
 }
 
@@ -252,3 +257,32 @@ setTimeout(() => {
 }, 15000);
 setInterval(generateCloud1, 100);
 setInterval(generateCloud2, 100);
+
+
+// Get the popup and the close button
+const lossPopup = document.getElementById('loss-popup');
+const closePopupBtn = document.getElementById('close-popup-btn');
+
+// Function to show the loss popup
+function showLossPopup() {
+    lossPopup.style.display = 'flex'; // Show the popup (centered)
+}
+
+// Function to hide the popup when the close button is clicked
+closePopupBtn.addEventListener('click', function() {
+    lossPopup.style.display = 'none'; // Hide the popup
+    // Optionally, reset the game state here
+});
+
+// Example game loop where you check for collisions or other conditions
+function gameLoop() {
+    // Your existing game logic (e.g., player movement, timer update)
+
+    // Check for collision between player and cloud
+    checkCollision();
+
+    // You can continue updating game state here, such as moving the player, etc.
+}
+
+// You might want to call gameLoop repeatedly, for example using `setInterval`:
+setInterval(gameLoop, 100); // Call every 100ms

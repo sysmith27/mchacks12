@@ -68,6 +68,7 @@ body {
     background: none;
     height: auto;
     max-width: 100%;
+    cursor: pointer;
 }
 
 #mute-button {
@@ -76,4 +77,5 @@ body {
     background: none;
     height: auto;
     max-width: 100%;
+    cursor: pointer;
 }

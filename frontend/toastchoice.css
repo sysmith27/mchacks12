@@ -1,0 +1,60 @@
+body {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically */
+    flex-direction: column;
+    height: 100vh;          /* Full viewport height */
+    margin: 0;              /* Remove default margin */
+    background-color: #ffecb6;
+    gap: 40px;
+ }
+
+ .header {
+   font-family: Sniglet;
+   font-size: 70px;
+   font-weight: bolder;
+   color: #b17e45;
+ }
+
+ @font-face {
+   font-family: "Sniglet";
+   src: url("../images/Sniglet-Regular.ttf");
+}
+
+ .character-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    flex-direction: row;
+ }
+
+.character {
+   width: 250px;
+   height: auto;
+}
+
+.character-button-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   opacity: 80%;
+}
+
+.p {
+   font-family: Sniglet;
+   color: #9f6e37;
+   font-size: 20px;
+}
+
+.character-button-container:hover {
+   opacity: 100%;
+}
+
+#button {
+   padding: 0;
+   border: none;
+   background: none;
+   height: auto;
+   max-width: 100%;
+}

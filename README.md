@@ -1,4 +1,5 @@
 # The Breadding of the Century
+![mchacks-log](images/mchacks-logo.png)
 ## Inspiration
 We were inspired to create this project by the beauty of bread!! As for why we decided to make a game, it provided the best way for all team members to contribute with varying levels of experience.
 ## What it does
@@ -13,3 +14,5 @@ Some things we're proud of for this project are the character designs and theme,
 In making this game, we learned a lot about CSS, HTML, JavaScript, and the concepts of a very basic API.
 ## What's next for Breadding of the Century
 A Honeymoon!! Future additions would include more levels and more about our favourite couple's favourite couple. New levels would include more obstacles, more complex paths, and multiplayer capacity so that the couple could play against each other in a friendly competition.
+## Please watch our demo here: 
+https://www.youtube.com/watch?v=aDCY97Drzgw

@@ -234,7 +234,8 @@ function checkWin() {
   function resetCountdown() {
     clearInterval(timerInterval);
     document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
-    alert('You win!');
+    //alert('You win!');
+    window.location.href = 'winning.html';
   }
   
   document.addEventListener("DOMContentLoaded", () => {

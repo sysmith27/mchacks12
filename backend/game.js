@@ -136,7 +136,9 @@ document.addEventListener('keydown', (e) => {
     updatePlayerPosition();
     checkWin();
     if (isFire(newX,newY)) {
-        alert("you are on fire")
+      showLossPopup();
+      clearInterval(timerInterval);
+      document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     }
   }
 });

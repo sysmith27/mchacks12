@@ -1,4 +1,4 @@
-# The Breadding of the Century
+# Breadding of the Century
 ![mchacks-log](images/mchacks-logo.png)
 ## Inspiration
 We were inspired to create this project by the beauty of bread!! As for why we decided to make a game, it provided the best way for all team members to contribute with varying levels of experience.

@@ -304,11 +304,11 @@ function gameLoop() {
     checkCollision();
 
     // You can continue updating game state here, such as moving the player, etc.
-    const againButton = getElementById('play-again-btn');
+    /*const againButton = getElementById('play-again-btn');
     againButton.addEventListener('click', function() {
         window.location.href = "toastchoice.html";
     // Optionally, reset the game state here
-    });
+    });*/
 }
 
 // You might want to call gameLoop repeatedly, for example using `setInterval`:

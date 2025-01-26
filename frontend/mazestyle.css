@@ -259,6 +259,22 @@ body {
     opacity: 100%;
 }
 
+.popup a img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+.popup a {
+    border: none;
+    background-color: transparent;
+    opacity: 80%;
+}
+
+.popup button:hover {
+    opacity: 100%;
+}
+
 #end-screen {
     width: 400px;
     height: auto;

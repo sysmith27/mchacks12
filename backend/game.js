@@ -258,7 +258,6 @@ setTimeout(() => {
 setInterval(generateCloud1, 100);
 setInterval(generateCloud2, 100);
 
-
 // Get the popup and the close button
 const lossPopup = document.getElementById('loss-popup');
 const closePopupBtn = document.getElementById('close-popup-btn');

@@ -130,11 +130,14 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') newX++;
 
   //check if the player collides with a wall and in bounds
-  if (!isWall(newX, newY) && isWithinBounds(newX, newY) && !isFire(newX, newY)) {
+  if (!isWall(newX, newY) && isWithinBounds(newX, newY)) {
     playerPosition.x = newX;
     playerPosition.y = newY;
     updatePlayerPosition();
     checkWin();
+    if (isFire(newX,newY)) {
+        alert("you are on fire")
+    }
   }
 });
 
@@ -161,15 +164,16 @@ function isCloud(x, y, cloudPosition) {
 }
 
 function isFire(x, y){
-    if (f1 === true && x * gridSize === firePosition1.x &&  y * gridSize === firePosition1.y) {
+    if (f1 === true && x === firePosition1.x &&  y === firePosition1.y) {
         return true;
     }
-    else if (f2 === true && x * gridSize === firePosition2.x && y * gridSize === firePosition2.y) {
+    else if (f2 === true && x === firePosition2.x && y === firePosition2.y) {
         return true;
     }
-    else if (f3 === true && x * gridSize === firePosition3.x && y * gridSize === firePosition3.y) {
+    else if (f3 === true && x === firePosition3.x && y === firePosition3.y) {
         return true;
     }
+    return false;
 }
 // are they at the goal
 function checkWin() {

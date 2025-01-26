@@ -85,10 +85,9 @@ function generateCloud1() {
     }
 
     if (isCloud(playerPosition.x*gridSize, playerPosition.y*gridSize, cloudPosition1)) {
-        //alert('You lost! The bread is soggy');
-        showLossPopup();
-        clearInterval(timerInterval);
-        document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
+      showLossPopup();
+      clearInterval(timerInterval);
+      document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
     }
 }
 
@@ -257,6 +256,7 @@ setTimeout(() => {
 }, 15000);
 setInterval(generateCloud1, 100);
 setInterval(generateCloud2, 100);
+
 
 // Get the popup and the close button
 const lossPopup = document.getElementById('loss-popup');

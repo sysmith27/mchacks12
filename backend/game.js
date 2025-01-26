@@ -225,8 +225,11 @@ function checkWin() {
       timeRemaining--;
       // Stop the timer after 60 seconds
       if (timeRemaining < 0) {
+        //clearInterval(timerInterval);
+        //alert("Time's up!");
+        showLossPopup();
         clearInterval(timerInterval);
-        alert("Time's up!");
+        document.getElementById("timer").textContent = `Time: ${timeRemaining}s`;
       }
     }, 1000);
   }
@@ -286,11 +289,16 @@ setInterval(generateCloud2, 100);
 
 
 // Get the popup and the close button
-const lossPopup = document.getElementById('loss-popup');
+//const lossPopup = document.getElementById('loss-popup');
 const closePopupBtn = document.getElementById('close-popup-btn');
 
 // Function to show the loss popup
 function showLossPopup() {
+  if (timeRemaining < 0) {
+    lossPopup = document.getElementById('time-up');
+  } else {
+    lossPopup = document.getElementById('loss-popup');
+  }
     lossPopup.style.display = 'flex'; // Show the popup (centered)
 }
 

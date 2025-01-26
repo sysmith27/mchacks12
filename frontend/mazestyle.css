@@ -271,7 +271,7 @@ body {
     opacity: 80%;
 }
 
-.popup button:hover {
+.popup a:hover {
     opacity: 100%;
 }
 

@@ -13,10 +13,12 @@ body {
     width: 10%;
     height: auto;
     z-index: 1;
+    margin-bottom: 20px;
 }
 
 .win-text {
     margin-top: 20px;
+    padding-bottom: 10px;
     font-family: Sniglet;
     font-size: 30px;
     text-align: center;
@@ -28,9 +30,38 @@ body {
 }
 
 #win {
-    margin-top: 0px;
+    /*margin-top: 0px;*/
     display: block;
     width: 35%;
-    margin-left: auto;
+    /*margin-left: auto;
     margin-right: auto;
+    margin-bottom: 40px;*/
+    margin: 0 auto;
+    padding-bottom: 10px;;
+}
+
+.play-again {
+    position: absolute; 
+    bottom: 10px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    text-align: center;
+    width: auto; 
+    margin-top: 0px;
+}
+
+.play-again a img {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+}
+
+.play-again a {
+    border: none;
+    background-color: transparent;
+    opacity: 80%;
+}
+
+.play-again a:hover {
+    opacity: 100%;
 }

@@ -29,8 +29,6 @@ body {
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: #f7d80f;
-    border-radius: 50%;
     z-index: 2;
     top: 0;
     left: 0;
@@ -245,4 +243,28 @@ body {
 #end-screen {
     width: 400px;
     height: auto;
+}
+
+.butter-background {
+    background-image: url('../images/Butter-toast.png');
+    background-size: cover; /* Optional for covering the area */
+    background-position: center;
+}
+    
+.jelly-background {
+    background-image: url('../images/Jelly.png');
+    background-size: cover; /* Optional for covering the area */
+    background-position: center;
+}
+    
+.nutella-background {
+    background-image: url('../images/Nutella-banana.png');
+    background-size: cover; /* Optional for covering the area */
+    background-position: center;
+}
+    
+.pbhoney-background {
+    background-image: url('../images/PB-honey.png');
+    background-size: cover; /* Optional for covering the area */
+    background-position: center;
 }

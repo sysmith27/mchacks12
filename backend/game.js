@@ -16,6 +16,26 @@ let firePosition2 = {x: 15, y: 6};
 let firePosition3 = {x: 19, y: 15};
 let f1 = false, f2 = false, f3 = false;
 
+/*player.style.backgroundImage = url('../images/Butter-toast.png');
+player.style.backgroundSize = cover;
+player.style.backgroundPosition = center;*/
+const flavor = localStorage.char;
+//alert(flavor == "nutella");
+
+function getCharacter() {
+  if (flavor == "butter") {
+    player.classList.add("butter-background");
+  }
+  else if (flavor == "nutella") {
+    player.classList.add("nutella-background");
+  }
+  else if (flavor == "pbhoney") {
+    player.classList.add("pbhoney-background");
+  }
+  else if (flavor == "jelly") {
+    player.classList.add("jelly-background");
+  }
+}
 
 //can't write over this path #thank you chat gpt
 const predefinedPath = [
@@ -240,7 +260,7 @@ function checkWin() {
   }, 100);
 });
   
-
+getCharacter();
 updatePlayerPosition();
 setTimeout(() => {
     const fire1 = document.getElementById('fire1');

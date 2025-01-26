@@ -51,7 +51,7 @@ body {
    opacity: 100%;
 }
 
-#button {
+.button {
    padding: 0;
    border: none;
    background: none;

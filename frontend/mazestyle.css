@@ -73,11 +73,27 @@ body {
     src: url("../images/Sniglet-Regular.ttf");
 }
 
-#cloud {
+#cloud1 {
+    background-image: url('../images/Cloud_.png');
+    background-size: cover;  /* Ensures the image covers the div */
+    background-position: center;
     position: absolute;
     width: 30px;
     height: 30px;
-    background-color: #b9b9b9;
+    border-radius: 50%;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    transition: top 0.2s, left 0.2s;
+}
+
+#cloud2 {
+    background-image: url('../images/Cloud_.png');
+    background-size: cover;  /* Ensures the image covers the div */
+    background-position: center;
+    position: absolute;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     z-index: 2;
     top: 0;

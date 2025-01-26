@@ -11,6 +11,10 @@ const gridHeight = 20;
 let playerPosition = { x: 0, y: 0 };
 let cloudPosition1 = {x: 0, y: 0};
 let cloudPosition2 = {x: 0, y: 0};
+let firePosition1 = {x: 8, y: 4};
+let firePosition2 = {x: 15, y: 6};
+let firePosition3 = {x: 19, y: 15};
+let f1 = false, f2 = false, f3 = false;
 
 
 //can't write over this path #thank you chat gpt
@@ -106,6 +110,11 @@ function generateCloud2() {
     }
 }
 
+function generateFire(fire, firePosition) {
+    fire.style.left = `${firePosition.x * gridSize}px`
+    fire.style.top = `${firePosition.y * gridSize}px`
+}
+
 // ariana's event listener thing
 document.addEventListener('keydown', (e) => {
   let newX = playerPosition.x;
@@ -117,7 +126,7 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'ArrowRight') newX++;
 
   //check if the player collides with a wall and in bounds
-  if (!isWall(newX, newY) && isWithinBounds(newX, newY)) {
+  if (!isWall(newX, newY) && isWithinBounds(newX, newY) && !isFire(newX, newY)) {
     playerPosition.x = newX;
     playerPosition.y = newY;
     updatePlayerPosition();
@@ -147,6 +156,17 @@ function isCloud(x, y, cloudPosition) {
     return ((cloudPosition.x -1 <= x && cloudPosition.x + 1 >= x) && (cloudPosition.y -1 <= y && cloudPosition.y + 5 >= y));
 }
 
+function isFire(x, y){
+    if (f1 === true && x * gridSize === firePosition1.x &&  y * gridSize === firePosition1.y) {
+        return true;
+    }
+    else if (f2 === true && x * gridSize === firePosition2.x && y * gridSize === firePosition2.y) {
+        return true;
+    }
+    else if (f3 === true && x * gridSize === firePosition3.x && y * gridSize === firePosition3.y) {
+        return true;
+    }
+}
 // are they at the goal
 function checkWin() {
     if (gameWon) return;
@@ -212,5 +232,23 @@ function checkWin() {
   
 
 updatePlayerPosition();
+setTimeout(() => {
+    const fire1 = document.getElementById('fire1');
+    fire1.style.display = 'block';
+    generateFire(fire1, firePosition1) // Make the element visible
+    f1 = true;
+}, 6000);
+setTimeout(() => {
+    const fire2 = document.getElementById('fire2');
+    fire2.style.display = 'block';
+    generateFire(fire2, firePosition2) // Make the element visible
+    f2 = true;
+}, 8000);
+setTimeout(() => {
+    const fire3 = document.getElementById('fire3');
+    fire3.style.display = 'block';
+    generateFire(fire3, firePosition3) // Make the element visible
+    f3 = true;
+}, 15000);
 setInterval(generateCloud1, 100);
 setInterval(generateCloud2, 100);

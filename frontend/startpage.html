@@ -21,13 +21,13 @@
             </div>
             <div class="button-container-mute">
                 <button type="button" id="mute-button">
-                    <img class="img" src="../images/Volume-on.png" id="mute-icon">
+                    <img class="img" src="../images/Volume-mute.png" id="mute-icon">
                 </button>
             </div>
         </div>
     </div>
 
-    <audio id="background-music" loop>
+    <audio id="background-music" muted loop>
         <source src="../images/breadsong.mp3" type="audio/mp3">
         Your browser does not support the audio element.
     </audio>
@@ -37,19 +37,33 @@
         const audio = document.getElementById('background-music');
         const muteIcon = document.getElementById('mute-icon');
         
-        window.onload = function() {
-            audio.play();
-        };
+        let hasStarted = false;
 
         muteButton.addEventListener('click', function() {
+
+        /*window.onload = function() {
+            audio.play().catch((error) => {
+                console.log("Autoplay failed:", error);
+            });
+        };*/
+            if (!hasStarted) {
+                // Start playing the audio on the first user interaction
+                audio.play().then(() => {
+                hasStarted = true;
+                }).catch((error) => {
+                    console.error("Audio playback failed:", error);
+                });
+            }
+
+            // Toggle mute/unmute
             if (audio.muted) {
                 audio.muted = false;
-                muteIcon.src = '../images/Volume-on.png';
+                muteIcon.src = '../images/Volume-on.png'; // Change to "volume on" icon
             } else {
                 audio.muted = true;
-                muteIcon.src = '../images/Volume-mute.png';
+                muteIcon.src = '../images/Volume-mute.png'; // Change to "volume mute" icon
             }
-        });
+         });
     </script>
 </body>
 </html>

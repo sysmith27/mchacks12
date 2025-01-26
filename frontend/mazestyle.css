@@ -5,6 +5,9 @@ body {
     height: 100vh;          /* Full viewport height */
     margin: 0;              /* Remove default margin */
     background-color: #ffecb6;
+    background-image: url('../images/background.png');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 #game-container {

@@ -20,11 +20,36 @@
                 </a>
             </div>
             <div class="button-container-mute">
-                <button type="button" id="button">
-                    <img class="img" src="../images/Volume-on.png">
+                <button type="button" id="mute-button">
+                    <img class="img" src="../images/Volume-on.png" id="mute-icon">
                 </button>
             </div>
         </div>
     </div>
+
+    <audio id="background-music" loop>
+        <source src="../images/breadsong.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        const muteButton = document.getElementById('mute-button');
+        const audio = document.getElementById('background-music');
+        const muteIcon = document.getElementById('mute-icon');
+        
+        window.onload = function() {
+            audio.play();
+        };
+
+        muteButton.addEventListener('click', function() {
+            if (audio.muted) {
+                audio.muted = false;
+                muteIcon.src = '../images/Volume-on.png';
+            } else {
+                audio.muted = true;
+                muteIcon.src = '../images/Volume-mute.png';
+            }
+        });
+    </script>
 </body>
 </html>

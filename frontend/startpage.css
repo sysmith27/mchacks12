@@ -69,3 +69,11 @@ body {
     height: auto;
     max-width: 100%;
 }
+
+#mute-button {
+    padding: 0;
+    border: none;
+    background: none;
+    height: auto;
+    max-width: 100%;
+}

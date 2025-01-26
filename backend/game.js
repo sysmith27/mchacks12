@@ -292,13 +292,14 @@ const closePopupBtn = document.getElementById('close-popup-btn');
 // Function to show the loss popup
 function showLossPopup() {
     lossPopup.style.display = 'flex'; // Show the popup (centered)
+    const againButton = getElementById('play-again-btn');
+    againButton.addEventListener('click', function() {
+        window.location.href = "toastchoice.html";
+    // Optionally, reset the game state here
+    });
 }
 
 // Function to hide the popup when the close button is clicked
-closePopupBtn.addEventListener('click', function() {
-    lossPopup.style.display = 'none'; // Hide the popup
-    // Optionally, reset the game state here
-});
 
 // Example game loop where you check for collisions or other conditions
 function gameLoop() {

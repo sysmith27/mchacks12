@@ -103,7 +103,7 @@ body {
 }
 
 #fire1 {
-    background-color: red;
+    background-image: url('../images/Fire.png');
     display: none; /* Start hidden */
     position: absolute;
     width: 30px;
@@ -115,7 +115,7 @@ body {
     transition: top 0.2s, left 0.2s;
 }
 #fire2 {
-    background-color: red;
+    background-image: url('../images/Fire.png');
     display: none; /* Start hidden */
     position: absolute;
     width: 30px;

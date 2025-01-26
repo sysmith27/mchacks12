@@ -42,6 +42,11 @@ body {
     align-items: flex-start;
     width: 40%;
     padding-bottom: 100px;
+    opacity: 80%;
+}
+
+.button-container-play:hover {
+    opacity: 100%;
 }
 
 .button-container-mute {
@@ -50,6 +55,11 @@ body {
     align-items: flex-start;
     width: 16%;
     padding-bottom: 100px;
+    opacity: 80%;
+}
+
+.button-container-mute:hover {
+    opacity: 100%;
 }
 
 #button {

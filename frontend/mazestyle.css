@@ -42,7 +42,7 @@ body {
     width: 30px;
     height: 30px;
     background-color: transparent;
-    border-radius: 50%;
+    
     z-index: 1;
     bottom: 0;
     right: 0;
@@ -52,9 +52,7 @@ body {
     background-color: #b17e45;
 }
 
-#timer {
-    display: flex;
-    justify-content: center;
+#timer-container {
     font-family: Sniglet;
     font-size: 20px;
     font-weight: bold;
@@ -65,6 +63,11 @@ body {
     top: 70px; /* Distance from the top of the page */
     left: 50%; /* Position horizontally at 50% of the page */
     transform: translateX(-50%); /* Adjust to center the element */
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
     margin-top: 5px;
 }
 

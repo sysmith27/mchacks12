@@ -18,7 +18,7 @@ body {
     position: relative;
     width: 600px;
     height: 600px;
-    background-color: #e6c095;
+    background-color: #ffecb6;
     border: 5px solid #b17e45;
     display: grid;
     grid-template-columns: repeat(20, 1fr);
@@ -47,7 +47,7 @@ body {
   }
 
 .wall {
-    background-color: #b17e45;
+    background-color: #ffac01;
 }
 
 #timer-container {
@@ -103,7 +103,9 @@ body {
 }
 
 #fire1 {
-    background-color: red;
+    background-image: url('../images/Fire.png');
+    background-size: cover;  /* Ensures the image covers the div */
+    background-position: center;
     display: none; /* Start hidden */
     position: absolute;
     width: 30px;
@@ -115,7 +117,9 @@ body {
     transition: top 0.2s, left 0.2s;
 }
 #fire2 {
-    background-color: red;
+    background-image: url('../images/Fire.png');
+    background-size: cover;  /* Ensures the image covers the div */
+    background-position: center;
     display: none; /* Start hidden */
     position: absolute;
     width: 30px;
@@ -128,7 +132,9 @@ body {
 }
 
 #fire3 {
-    background-color: red;
+    background-image: url('../images/Fire.png');
+    background-size: cover;  /* Ensures the image covers the div */
+    background-position: center;
     display: none; /* Start hidden */
     position: absolute;
     width: 30px;

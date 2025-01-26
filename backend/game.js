@@ -292,11 +292,6 @@ const closePopupBtn = document.getElementById('close-popup-btn');
 // Function to show the loss popup
 function showLossPopup() {
     lossPopup.style.display = 'flex'; // Show the popup (centered)
-    const againButton = getElementById('play-again-btn');
-    againButton.addEventListener('click', function() {
-        window.location.href = "toastchoice.html";
-    // Optionally, reset the game state here
-    });
 }
 
 // Function to hide the popup when the close button is clicked
@@ -309,6 +304,11 @@ function gameLoop() {
     checkCollision();
 
     // You can continue updating game state here, such as moving the player, etc.
+    const againButton = getElementById('play-again-btn');
+    againButton.addEventListener('click', function() {
+        window.location.href = "toastchoice.html";
+    // Optionally, reset the game state here
+    });
 }
 
 // You might want to call gameLoop repeatedly, for example using `setInterval`:

@@ -2,13 +2,16 @@
 const player = document.getElementById('player');
 const maze = document.getElementById('maze');
 const goal = document.getElementById('goal');
-const cloud = document.getElementById('cloud');
+const cloud1 = document.getElementById('cloud1');
+const cloud2 = document.getElementById('cloud2');
 // grid size and player position
 const gridSize = 30; //cell size = 30 x 30 
 const gridWidth = 20; 
 const gridHeight = 20; 
 let playerPosition = { x: 0, y: 0 };
-let cloudPosition = {x: 0, y: 0};
+let cloudPosition1 = {x: 0, y: 0};
+let cloudPosition2 = {x: 0, y: 0};
+
 
 //can't write over this path #thank you chat gpt
 const predefinedPath = [
@@ -61,22 +64,44 @@ walls.forEach(wall => {
 
 //make clound 
 let moving_direction = 30;
-function generateCloud() {
-    cloudPosition.x = cloudPosition.x + moving_direction;
-    cloudPosition.y = 30;
+function generateCloud1() {
+    cloudPosition1.x = cloudPosition1.x + moving_direction;
+    cloudPosition1.y = 90;
 
-    if (cloudWithinBounds(cloudPosition.x, cloudPosition.y)) {
+    if (cloudWithinBounds(cloudPosition1.x, cloudPosition1.y)) {
         console.log('within_bounds');
-        cloud.style.left = `${cloudPosition.x}px`;
-        cloud.style.top = `${cloudPosition.y}px`;
+        cloud1.style.left = `${cloudPosition1.x}px`;
+        cloud1.style.top = `${cloudPosition1.y}px`;
     }
     else {
-        cloudPosition.x = cloudPosition.x + (-2)*moving_direction;
+        cloudPosition1.x = cloudPosition1.x + (-2)*moving_direction;
         moving_direction = (-1)*moving_direction;
-        cloud.style.left = `${cloudPosition.x}px`;
-        cloud.style.top = `${cloudPosition.y}px`;
+        cloud1.style.left = `${cloudPosition1.x}px`;
+        cloud1.style.top = `${cloudPosition1.y}px`;
     }
-    if (isCloud(playerPosition.x, playerPosition.y)) {
+
+    if (isCloud(playerPosition.x*gridSize, playerPosition.y*gridSize, cloudPosition1)) {
+        alert('You lost! The bread is soggy');
+    }
+}
+
+function generateCloud2() {
+    cloudPosition2.x = cloudPosition2.x + moving_direction;
+    cloudPosition2.y = 360;
+
+    if (cloudWithinBounds(cloudPosition2.x, cloudPosition2.y)) {
+        console.log('within_bounds');
+        cloud2.style.left = `${cloudPosition2.x}px`;
+        cloud2.style.top = `${cloudPosition2.y}px`;
+    }
+    else {
+        cloudPosition2.x = cloudPosition2.x + (-2)*moving_direction;
+        moving_direction = (-1)*moving_direction;
+        cloud2.style.left = `${cloudPosition2.x}px`;
+        cloud2.style.top = `${cloudPosition2.y}px`;
+    }
+
+    if (isCloud(playerPosition.x*gridSize, playerPosition.y*gridSize, cloudPosition2)) {
         alert('You lost! The bread is soggy');
     }
 }
@@ -118,9 +143,8 @@ function cloudWithinBounds(x, y) {
     return x >= 0 && x < 600 && y >= 0 && y < 600;
 }
 
-function isCloud(x, y) {
-    //alert(cloudPosition.x);
-    return ((cloudPosition.x -10 <= x && cloudPosition.x + 10 >= x) && (cloudPosition.y -10 <= y && cloudPosition.y + 10 >= y));
+function isCloud(x, y, cloudPosition) {
+    return ((cloudPosition.x -1 <= x && cloudPosition.x + 1 >= x) && (cloudPosition.y -1 <= y && cloudPosition.y + 5 >= y));
 }
 
 // are they at the goal
@@ -188,4 +212,5 @@ function checkWin() {
   
 
 updatePlayerPosition();
-setInterval(generateCloud, 100);
+setInterval(generateCloud1, 100);
+setInterval(generateCloud2, 100);
